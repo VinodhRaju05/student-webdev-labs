@@ -9,6 +9,74 @@
   <body>
     <main>
       <!-- Add your code here -->
+      <h1 class="visually-hidden">Bear Gallery</h1>
+
+      <figure
+        style="
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <div style="width: 200px; text-align: left">
+          <img
+            src="https://placebear.com/200/150"
+            alt="A brown bear sitting in the forest"
+            width="200"
+            height="150"
+            style="display: block; margin-bottom: 5px"
+          />
+          <figcaption style="font-weight: bold">Bears Rule!</figcaption>
+        </div>
+      </figure>
+
+      <!-- Space after first picture -->
+      <div style="height: 30px"></div>
+
+      <figure
+        style="
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <div style="width: 200px; text-align: left">
+          <img
+            src="https://placebear.com/g/200/150"
+            alt="A grayscale bear standing in the woods"
+            width="200"
+            height="150"
+            style="display: block; margin-bottom: 5px"
+          />
+          <figcaption style="font-weight: bold">Grizzly Power!</figcaption>
+        </div>
+      </figure>
+
+      <style>
+        /* Center the content inside main */
+        main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+
+        /* Visually hidden heading for accessibility */
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      </style>
     </main>
   </body>
 </html>

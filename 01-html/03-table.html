@@ -18,7 +18,57 @@
     <main>
       <table>
         <!-- Add your code here -->
+        <h1 class="visually-hidden">Gallery</h1>
+        <caption class="visually-hidden">
+          List of users with their first name, last name, and email
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spongebob</td>
+            <td>Squarepants</td>
+            <td>spongebob@spongebob.world</td>
+          </tr>
+          <tr>
+            <td>Patrick</td>
+            <td>Star</td>
+            <td>patrick@spongebob.world</td>
+          </tr>
+          <tr>
+            <td>Sandy</td>
+            <td>Cheeks</td>
+            <td>sandy@spongebob.world</td>
+          </tr>
+          <tr>
+            <td colspan="2" rowspan="2">Mr Krabs</td>
+            <td>mrk@spongebob.world</td>
+          </tr>
+          <tr>
+            <td>mrkrabs@spongebob.world</td>
+          </tr>
+        </tbody>
       </table>
+
+      <style>
+        /* Visually hidden heading for screen readers */
+        .visually-hidden {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
+        }
+      </style>
     </main>
   </body>
 </html>

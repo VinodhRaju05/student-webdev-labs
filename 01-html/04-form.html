@@ -10,6 +10,82 @@
     <main>
       <form action="/submit">
         <!-- Add your code here -->
+        <h1>Form</h1>
+
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Full Name"
+          style="margin-bottom: 1px"
+        /><br />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="name@pdx.edu"
+        /><br /><br />
+
+        <fieldset>
+          <legend>Favorite Character:</legend>
+          <input
+            type="radio"
+            id="spongebob"
+            name="character"
+            value="Spongebob"
+          />
+          <label for="spongebob">Spongebob</label><br />
+
+          <input type="radio" id="sandy" name="character" value="Sandy" />
+          <label for="sandy">Sandy</label><br />
+
+          <input type="radio" id="patrick" name="character" value="Patrick" />
+          <label for="patrick">Patrick</label><br />
+        </fieldset>
+        <br />
+
+        <fieldset>
+          <legend>Are you a fan of the show?</legend>
+          <input type="checkbox" id="watched" name="fan" value="watched" />
+          <label for="watched">Yes, I have watched all episodes!</label><br />
+
+          <input type="checkbox" id="memes" name="fan" value="memes" />
+          <label for="memes">Yes, it's got the best memes.</label><br />
+        </fieldset>
+        <br />
+
+        <input
+          type="submit"
+          value="Submit"
+          style="
+            padding: 3px 2px;
+            margin-right: 6px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            width: 60px;
+            box-sizing: border-box;
+            font-size: 11px;
+            background-color: #fcfcfc;
+          "
+        />
+        <input
+          type="reset"
+          value="Reset"
+          style="
+            padding: 3px 2px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            width: 60px;
+            box-sizing: border-box;
+            font-size: 11px;
+            background-color: #fcfcfc;
+          "
+        />
       </form>
     </main>
   </body>
