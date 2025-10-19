@@ -13,7 +13,17 @@
 
 ### Accessibility
 
-Enter your reflections on this section here.
+- Were you able to complete the exercises on your own or did you use the videos or the solutions for help?
+  Yes, I was able to complete the exercises on my own and also i refered some of the marterials for better understanding
+
+- How helpful did you find the exercises in this section? Was there one exercise that was particularly helpful?
+  I found the accessibility exercises very helpful in understanding how small HTML changes like adding labels or using semantic elements make a big difference for screen readers. The form exercise was especially useful because it showed how easy it is to miss basic accessibility details, like labeling inputs or defining page regions, and how those directly impact usability.
+
+- Was there something that you wish had been explained better?
+  I wish there had been a little more explanation about how to fix the “no page regions” and “missing form label” errors, since those were a bit confusing at first.
+
+- Were there other exercises that might have helped you learn this week’s topic a little better?
+  An exercise on adding ARIA roles or improving keyboard navigation would have helped me understand accessibility a little better.
 
 ### CSS
 
