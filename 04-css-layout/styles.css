@@ -168,18 +168,14 @@ h1 {
 .grid-area-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(9, 1fr);
+  grid-template-rows: 1fr 3fr 1fr 3fr 1fr;
   gap: 0.5rem;
   grid-template-areas:
-    "header "
-    "article "
-    "article "
+    "header"
     "article"
     "aside"
-    "section "
-    "section "
-    "section "
-    "footer ";
+    "section"
+    "footer";
 }
 @media (min-width: 992px) {
   .grid-area-container {
