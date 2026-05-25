@@ -18,5 +18,101 @@ const pokemonColors = {
   steel: '#B7B7CE',
   fairy: '#D685AD',
 };
-
 // Add your code here
+const createNewElement = function (data) {
+  const { name: pokemonName, types } = data;
+  const { front_default: pokemonImage } = data.sprites.other["official-artwork"];
+  const pokemonTypesArr = types.map((item) => item.type.name);
+
+  const card = document.createElement("div");
+  const h2 = document.createElement("h2");
+  const img = document.createElement("img");
+  const typesDiv = document.createElement("div");
+
+  h2.textContent = pokemonName;
+  img.src = pokemonImage;
+  img.alt = pokemonName;
+  img.width = 150;
+  img.height = 150;
+
+  card.setAttribute("class", "pokemonCard");
+  card.append(h2);
+  card.append(img);
+
+  pokemonTypesArr.map((item) => {
+    const span = document.createElement("span");
+    span.textContent = item;
+    span.style.backgroundColor = pokemonColors[item];
+    span.setAttribute("class", "pokemonType");
+    typesDiv.append(span);
+  });
+
+  card.append(typesDiv);
+  return card;
+};
+
+let allPokemons = [];
+
+const fetchDataAll = async function () {
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=25&offset=0";
+  const pokeList = document.querySelector(".poke-list");
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const pokemonList = data.results;
+
+    const promises = pokemonList.map((pokemon) =>
+      fetch(pokemon.url)
+        .then((res) => res.json())
+        .catch((error) => {
+          console.error("An error occurred", error);
+        })
+    );
+
+    allPokemons = await Promise.all(promises);
+
+    allPokemons.forEach((pokemon) => {
+      const pokemonCard = createNewElement(pokemon);
+      pokeList.append(pokemonCard);
+    });
+  } catch (error) {
+    console.error("Error fetching data from the PokeAPI", error);
+    const errorElement = document.createElement("p");
+    errorElement.textContent = "Error fetching data from the PokeAPI";
+    errorElement.setAttribute("class", "errorMessage");
+    pokeList.append(errorElement);
+  } finally {
+    const loading = document.querySelector(".loading-container");
+    loading.setAttribute("class", "display-none");
+  }
+};
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  const pokeList = document.querySelector(".poke-list");
+  pokeList.innerHTML = "";
+
+  const filtered = allPokemons.filter(
+    (pokemon) =>
+      pokemon.name.toLowerCase().includes(query) ||
+      pokemon.types.some((t) => t.type.name.toLowerCase().includes(query))
+  );
+
+  if (filtered.length === 0) {
+    const noResults = document.createElement("p");
+    noResults.textContent = "No Pokémon found!";
+    noResults.setAttribute("class", "errorMessage");
+    pokeList.append(noResults);
+    return;
+  }
+
+  filtered.forEach((pokemon) => {
+    const pokemonCard = createNewElement(pokemon);
+    pokeList.append(pokemonCard);
+  });
+});
+
+fetchDataAll();
